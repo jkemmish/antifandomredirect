@@ -1,18 +1,13 @@
 {
   "name": "Antifandomredirect",
   "author": "STKR",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Redirects fandom to antifandom",
   "permissions": ["storage",
                   "*://*.fandom.com/*",
                   "webNavigation"
                  ],
 
-  "applications": {
-    "gecko" : {
-      "id": "{c3cc188f-ea35-4519-a09c-72e8f06b5d11}"
-    }
-  },
 
   "background": {
     "scripts": ["background.js"],
