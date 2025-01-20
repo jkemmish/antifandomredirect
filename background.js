@@ -4,7 +4,7 @@
   let isPluginDisabled = false; // Variable storing whether or not the plugin is disabled.
   let storage = window.storage || chrome.storage; // Make sure we have a storage API.
 
-  const RSWIKIA_REGEX = /^(runescape|oldschoolrunescape|runescapeclassic)\.(wikia|fandom)\.com$/i; // Used to match the domain of the old wikia/fandom to make sure we are redirecting the correct domain.
+  const RSWIKIA_REGEX = .*\.fandom\.com$/i; // Used to match the domain of the old wikia/fandom to make sure we are redirecting the correct domain.
   const PT_REGEX = /\/pt(?=\/)/i;
 
   // Listen to before anytime the browser attempts to navigate to the old Wikia/Fandom sites.
@@ -25,30 +25,12 @@
       // Generate new url
       const oldHost = url.host.split('.')[0].toLowerCase();
       let newHost = null;
-
-      switch (oldHost) {
-        case 'runescape':
-          newHost = oldHost;
-
-          // special case for pt-br
-          if (PT_REGEX.test(url.pathname)) {
-            url.pathname = url.pathname.replace(PT_REGEX, ''); // remove /pt from URL
-            newHost = 'pt.runescape'; // override new host with pt-br wiki
-          };
-          break;
-        case 'oldschoolrunescape':
-          newHost = 'oldschool.runescape';
-          break;
-        case 'runescapeclassic':
-          newHost = 'classic.runescape';
-          break;
-        default:
-          break;
+      newHost = oldHost;
       };
 
       if (!newHost) return;
 
-      const redirectUrl = `https://${newHost}.wiki${url.pathname.replace(/^\/wiki\//i,"/w/")}`; // Create the redirect URL
+      const redirectUrl = `https://antifandom.com/newHost`; // Create the redirect URL
       console.log(`RSWikia intercepted:  ${info.url}\nRedirecting to ${redirectUrl}`); 
       // Redirect the old wikia request to new wiki
       chrome.tabs.update(info.tabId,{url:redirectUrl});
