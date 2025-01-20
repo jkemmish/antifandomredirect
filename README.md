@@ -1,7 +1,5 @@
 # RSWikiRedirector
-Redirects old RS Wikia links to the new RS Wiki
+Based off of RSWikiRedirector, redirects Fandom URLs to Breezewiki/antifandom urls. Disable if you want to edit.
 
-## Built Versions
-[Chrome Extension](https://chrome.google.com/webstore/detail/rs-wiki-redirector/pcbjeffbdbcicmgffkdbpllfenfbodfo)
+## Firefox Versions
 
-[Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/rs-wiki-redirector/)
